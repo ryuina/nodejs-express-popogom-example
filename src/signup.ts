@@ -15,12 +15,13 @@ router.post('/', (req, res) => {
 
   const { id, password, name, phoneAddress, emailAddress, advertisement } = req.body;
 
-  console.info(`[New User Signup]
-id: ${id}, password: ${password}, name: ${name}, phoneAddress: ${phoneAddress}, emailAddress: ${emailAddress}, advertisement: ${advertisement}`);
-
   if (!(id && password && name && phoneAddress && emailAddress && advertisement)) {
     return res.json({error: {code: 100, message: '회원가입 폼에 없는 항목이 있습니다.', data: req.body }});
   }
+
+  console.info(`[New User Signup]
+id: ${id}, password: ${password}, name: ${name}, phoneAddress: ${phoneAddress}, emailAddress: ${emailAddress}, advertisement: ${advertisement}`);
+
   return res.json(req.body);
 });
 
